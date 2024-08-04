@@ -15,7 +15,6 @@ const App = () => {
   const submitHandler = (e) => {
     e.preventDefault();
     disPatch(edit({ id, date }));
-    disPatch(updateDate(""));
     disPatch(updateId(""));
   };
   return (
