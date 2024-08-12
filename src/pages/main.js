@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { edit, getVolunteers } from "../store/volunteers.slice";
 import { updateDate, updateId } from "../store/form";
+import link from "../env";
 
 const Main = () => {
   const disPatch = useDispatch();
@@ -54,8 +55,7 @@ const Main = () => {
         <button
           onClick={(e) => {
             e.preventDefault();
-            window.location.href =
-              "https://resala-backend.onrender.com/downloadSheet";
+            window.location.href = `${link()}/downloadSheet`;
           }}
         >
           تحميل الشيت

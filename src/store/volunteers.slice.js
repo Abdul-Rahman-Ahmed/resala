@@ -1,13 +1,12 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import link from "../env";
 
 export const getVolunteers = createAsyncThunk(
   "volunteers",
   async (param, thankapi) => {
     const { rejectWithValue } = thankapi;
     try {
-      const res = await fetch(
-        "https://resala-backend.onrender.com/allVolunteers"
-      );
+      const res = await fetch(`${link()}/allVolunteers`);
       const data = await res.json();
       return data.volunteers;
     } catch (err) {
@@ -20,7 +19,7 @@ export const edit = createAsyncThunk("edit", async (param, thankapi) => {
   const { rejectWithValue } = thankapi;
   const { id, date } = param;
   try {
-    const res = await fetch(`https://resala-backend.onrender.com/edit`, {
+    const res = await fetch(`${link()}/edit`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

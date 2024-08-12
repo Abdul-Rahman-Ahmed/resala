@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./login.css";
+import link from "../../env";
 
 const Login = () => {
   let [email, setEmail] = useState("");
@@ -10,7 +11,7 @@ const Login = () => {
   const submitHandler = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch("http://localhost:4000/api/users/login", {
+      const res = await fetch(`${link()}/api/users/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
